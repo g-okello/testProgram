@@ -19,8 +19,8 @@ Route::get('/', function () {
 
 Auth::routes();  
 
-Route::get('/home/{user}', [App\Http\Controllers\HomeController::class, 'index'])->name('home.show');
-Route::post('/home/{user}', [App\Http\Controllers\HomeController::class, 'store'])->name('storeToDb.store');  
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home.show');
+Route::post('/home', [App\Http\Controllers\HomeController::class, 'store'])->name('storeToDb.store');  
 Route::get('/home/course/{course}/edit', [App\Http\Controllers\CourseController::class, 'select'])->name('selectCourse.edit');
 Route::patch('/home/course/{course}/update', [App\Http\Controllers\CourseController::class, 'update'])->name('selectCourse.update');
 Route::get('/home/course/{course}/remove', [App\Http\Controllers\CourseController::class, 'remove'])->name('selectCourse.destroy');

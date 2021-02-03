@@ -27,7 +27,7 @@
     </div>
     
     <div id="register-course-form">
-        <form enctype="multipart/form-data"style="margin-left: 20%; margin-right: 20%;" action="/home/{user}" method="post">
+        <form enctype="multipart/form-data"style="margin-left: 20%; margin-right: 20%;" action="/home" method="post">
             
             @csrf
 

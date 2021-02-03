@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Course;
+use Illuminate\Support\Facades\Auth;
 
 class CourseController extends Controller
 {
@@ -19,7 +20,7 @@ class CourseController extends Controller
         return view('select', ['course' => $course]);  
     }
 
-    public function update($course_id)
+    public function update($course)
     {
         $data = request()->validate([
             'course_name'=>'required',
@@ -27,22 +28,22 @@ class CourseController extends Controller
             'hours'=>'required',
         ]); 
         
-        \DB::table('courses')->where("courses.id", '=',  $course_id)
+        \DB::table('courses')->where("courses.id", '=', $course)
         ->update($data);
 
-        return redirect('/home/' . auth()->id());
+        return redirect('/home');
     }
 
-    public function remove($course_id)
+    public function remove($course)
     {
-        \DB::table('courses')->where("courses.id", '=',  $course_id)
+        \DB::table('courses')->where("courses.id", '=', $course)
         ->delete();
 
-        return redirect('/home/' . auth()->id()); 
+        return redirect('/home'); 
     }
 
     public function cancel()
     {
-        return redirect('/home/' . auth()->id());
+        return redirect('/home');
     }
 }
